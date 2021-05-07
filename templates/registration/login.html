@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% load static %}
+
+{% block title %} Login {% endblock %}
+
+{% block content %}
+    <form role="form" enctype="multipart/form-data" method="post">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        {% buttons submit='Login' %}{% endbuttons %}
+    </form>
+    <div>
+        <a href="{% url 'password_reset' %}">
+            <button class="btn btn-link btn-large btn-block">Forgot password?</button>
+        </a>
+    </div>
+    <div>
+        <a href="{% url 'register' %}">
+            <button class="btn btn-link btn-large btn-block">No account yet?</button>
+        </a>
+    </div>
+{% endblock %}
